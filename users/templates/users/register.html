@@ -1,0 +1,21 @@
+{% extends "feed/layout.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content_unauth %}
+<section class="container">
+  <h1 class="large text-primary">
+    Sign Up
+  </h1>
+  <p class="lead"><i class="fas fa-user"></i> Create Your Account</p>
+  <form method="POST" class="form">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form | crispy }}
+    </div>
+    <input type="submit" value="Register" class="btn btn-primary" />
+  </form>
+  <p class="my-1">
+    Already have an account? <a href="{% url 'login' %}">Sign In</a>
+  </p>
+</section>
+{% endblock %}

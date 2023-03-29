@@ -1,0 +1,20 @@
+{% extends "feed/layout.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1 class="large text-primary">
+  Posts
+</h1>
+<p class="lead"><i class="fas fa-user"></i> Welcome to the community</p>
+
+<div class="post-form">
+  <div class="post-form-header bg-primary">
+    <h3>Say Something...</h3>
+  </div>
+  <form class="form my-1" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit" class="btn btn-dark my-1" />
+  </form>
+</div>
+{% endblock %}
